@@ -47,6 +47,30 @@ public class Backs {
 	@Column(length=2, nullable=false)
 	int recTds;
 	
+	@Column(length=3, nullable=false)
+	int firstDowns;
+	
+	@Column(length=2, nullable=false)
+	int hundredYardGame;
+	
+	@Column(length=2, nullable=false)
+	int twoHundredYardGame;
+	
+	@Column(length=2, nullable=false)
+	int fourtyYardPlay;
+	
+	@Column(length=2, nullable=false)
+	int fourtyYardTds;
+	
+	@Column(length=2, nullable=false)
+	int passCompleted;
+	
+	@Column(length=4, nullable=false)
+	int passYards;
+	
+	@Column(length=2, nullable=false)
+	int passTds;
+	
 	@Column(length=2, nullable=false)
 	int fumbles;
 	
@@ -63,9 +87,11 @@ public class Backs {
 		
 	}
 
+
 	public Backs(int rbId, int rank, String name, String team, int byeWeek, float points, int rushAttempts,
-			float rushYards, int rushTds, int receptions, float recYards, int recTds, int fumbles, int fumblesLost,
-			float targetShare, float pointsGame) {
+			float rushYards, int rushTds, int receptions, float recYards, int recTds, int firstDowns,
+			int hundredYardGame, int twoHundredYardGame, int fourtyYardPlay, int fourtyYardTds, int passCompleted,
+			int passYards, int passTds, int fumbles, int fumblesLost, float targetShare, float pointsGame) {
 		this.rbId = rbId;
 		this.rank = rank;
 		this.name = name;
@@ -78,15 +104,24 @@ public class Backs {
 		this.receptions = receptions;
 		this.recYards = recYards;
 		this.recTds = recTds;
+		this.firstDowns = firstDowns;
+		this.hundredYardGame = hundredYardGame;
+		this.twoHundredYardGame = twoHundredYardGame;
+		this.fourtyYardPlay = fourtyYardPlay;
+		this.fourtyYardTds = fourtyYardTds;
+		this.passCompleted = passCompleted;
+		this.passYards = passYards;
+		this.passTds = passTds;
 		this.fumbles = fumbles;
 		this.fumblesLost = fumblesLost;
 		this.targetShare = targetShare;
 		this.pointsGame = pointsGame;
 	}
-	
+
 	public Backs(int rank, String name, String team, int byeWeek, float points, int rushAttempts,
-			float rushYards, int rushTds, int receptions, float recYards, int recTds, int fumbles, int fumblesLost,
-			float targetShare, float pointsGame) {		
+			float rushYards, int rushTds, int receptions, float recYards, int recTds, int firstDowns,
+			int hundredYardGame, int twoHundredYardGame, int fourtyYardPlay, int fourtyYardTds, int passCompleted,
+			int passYards, int passTds, int fumbles, int fumblesLost, float targetShare, float pointsGame) {
 		this.rank = rank;
 		this.name = name;
 		this.team = team;
@@ -98,12 +133,22 @@ public class Backs {
 		this.receptions = receptions;
 		this.recYards = recYards;
 		this.recTds = recTds;
+		this.firstDowns = firstDowns;
+		this.hundredYardGame = hundredYardGame;
+		this.twoHundredYardGame = twoHundredYardGame;
+		this.fourtyYardPlay = fourtyYardPlay;
+		this.fourtyYardTds = fourtyYardTds;
+		this.passCompleted = passCompleted;
+		this.passYards = passYards;
+		this.passTds = passTds;
 		this.fumbles = fumbles;
 		this.fumblesLost = fumblesLost;
 		this.targetShare = targetShare;
 		this.pointsGame = pointsGame;
 	}
-	
+
+
+
 	public Backs(int rbId) {
 		this.rbId = rbId;
 	}
@@ -149,7 +194,7 @@ public class Backs {
 	}
 
 	public float getPoints() {
-		return points;
+		return (float) ((rushAttempts*0.1)+(rushYards/10)+(rushTds*6)+(receptions*1)+(recYards/10)+(recTds*6)+(firstDowns*0.1)+(fumbles*0)+(fumblesLost*-2)+(hundredYardGame*2)+(twoHundredYardGame*4)+(fourtyYardPlay*1)+(fourtyYardTds*1.5)+(passCompleted*0.20)+(passYards*0.04)+(passTds*5));
 	}
 
 	public void setPoints(float points) {
@@ -203,11 +248,91 @@ public class Backs {
 	public void setRecTds(int recTds) {
 		this.recTds = recTds;
 	}
+	
+	public int getFirstDowns() {
+		return firstDowns;
+	}
+	
+	public void setFirstDowns(int firstDowns) {
+		this.firstDowns = firstDowns;
+	}
+	
+	
+
+	public int getHundredYardGame() {
+		return hundredYardGame;
+	}
+
+
+	public void setHundredYardGame(int hundredYardGame) {
+		this.hundredYardGame = hundredYardGame;
+	}
+
+
+	public int getTwoHundredYardGame() {
+		return twoHundredYardGame;
+	}
+
+
+	public void setTwoHundredYardGame(int twoHundredYardGame) {
+		this.twoHundredYardGame = twoHundredYardGame;
+	}
+
+
+	public int getFourtyYardPlay() {
+		return fourtyYardPlay;
+	}
+
+
+	public void setFourtyYardPlay(int fourtyYardPlay) {
+		this.fourtyYardPlay = fourtyYardPlay;
+	}
+
+
+	public int getFourtyYardTds() {
+		return fourtyYardTds;
+	}
+
+
+	public void setFourtyYardTds(int fourtyYardTds) {
+		this.fourtyYardTds = fourtyYardTds;
+	}
+
+
+	public int getPassCompleted() {
+		return passCompleted;
+	}
+
+
+	public void setPassCompleted(int passCompleted) {
+		this.passCompleted = passCompleted;
+	}
+
+
+	public int getPassYards() {
+		return passYards;
+	}
+
+
+	public void setPassYards(int passYards) {
+		this.passYards = passYards;
+	}
+
+
+	public int getPassTds() {
+		return passTds;
+	}
+
+
+	public void setPassTds(int passTds) {
+		this.passTds = passTds;
+	}
+
 
 	public int getFumbles() {
 		return fumbles;
 	}
-
+	
 	public void setFumbles(int fumbles) {
 		this.fumbles = fumbles;
 	}
@@ -241,6 +366,9 @@ public class Backs {
 		return "Backs [rbId=" + rbId + ", rank=" + rank + ", name=" + name + ", team=" + team + ", byeWeek=" + byeWeek
 				+ ", points=" + points + ", rushAttempts=" + rushAttempts + ", rushYards=" + rushYards + ", rushTds="
 				+ rushTds + ", receptions=" + receptions + ", recYards=" + recYards + ", recTds=" + recTds
+				+ ", firstDowns=" + firstDowns + ", hundredYardGame=" + hundredYardGame + ", twoHundredYardGame="
+				+ twoHundredYardGame + ", fourtyYardPlay=" + fourtyYardPlay + ", fourtyYardTds=" + fourtyYardTds
+				+ ", passCompleted=" + passCompleted + ", passYards=" + passYards + ", passTds=" + passTds
 				+ ", fumbles=" + fumbles + ", fumblesLost=" + fumblesLost + ", targetShare=" + targetShare
 				+ ", pointsGame=" + pointsGame + "]";
 	}

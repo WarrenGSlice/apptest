@@ -46,7 +46,9 @@ public class RunningBackService implements RunningBackInterface {
 		for(RBEntity entity : rbEntity)
 		{
 			runningBackDomain.add(new RBModel(entity.getRbId(), entity.getRank(), entity.getName(), entity.getTeam(), entity.getByeWeek(),entity.getPoints(), entity.getRushAttempts(), entity.getRushYards(),
-					entity.getRushTds(), entity.getReceptions(), entity.getRecYards(), entity.getRecTds(), entity.getFumbles(), entity.getFumblesLost(), entity.getTargetShare(), entity.getPointsGame()));
+					entity.getRushTds(), entity.getReceptions(), entity.getRecYards(), entity.getRecTds(), entity.getFirstDowns(), entity.getHundredYardGame(), entity.getTwoHundredYardGame(),
+					entity.getFourtyYardPlay(), entity.getFourtyYardTds(), entity.getPassCompleted(), entity.getPassYards(), entity.getPassTds(), entity.getFumbles(), entity.getFumblesLost(), 
+					entity.getTargetShare(), entity.getPointsGame()));
 		}
 		return runningBackDomain;
 	}

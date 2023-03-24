@@ -115,6 +115,14 @@ public class RunningBackDataService implements DataAccessInterface<RBEntity> {
 									(int)rs.getInt("RECEPTIONS"),
 									(float)rs.getFloat("REC_YARDS"),
 									(int)rs.getInt("REC_TDS"),
+									(int)rs.getInt("FIRST_DOWNS"),
+									(int)rs.getInt("100_YARD_GAME"),
+									(int)rs.getInt("200_YARD_GAME"),
+									(int)rs.getInt("40_YARD_PLAY"),
+									(int)rs.getInt("40_YARD_TDS"),
+									(int)rs.getInt("PASS_COMPLETED"),
+									(int)rs.getInt("PASS_YARDS"),
+									(int)rs.getInt("PASS_TDS"),
 									(int)rs.getInt("FUM"),
 									(int)rs.getInt("FUM_LOST"),
 									(float)rs.getFloat("TARGET_SHARE"),
@@ -165,6 +173,14 @@ public class RunningBackDataService implements DataAccessInterface<RBEntity> {
 						(int)rs.getInt("RECEPTIONS"),
 						(float)rs.getFloat("REC_YARDS"),
 						(int)rs.getInt("REC_TDS"),
+						(int)rs.getInt("FIRST_DOWNS"),
+						(int)rs.getInt("100_YARD_GAME"),
+						(int)rs.getInt("200_YARD_GAME"),
+						(int)rs.getInt("40_YARD_PLAY"),
+						(int)rs.getInt("40_YARD_TDS"),
+						(int)rs.getInt("PASS_COMPLETED"),
+						(int)rs.getInt("PASS_YARDS"),
+						(int)rs.getInt("PASS_TDS"),
 						(int)rs.getInt("FUM"),
 						(int)rs.getInt("FUM_LOST"),
 						(float)rs.getFloat("TARGET_SHARE"),
@@ -213,7 +229,7 @@ public class RunningBackDataService implements DataAccessInterface<RBEntity> {
 	public boolean create(RBEntity orders) {
 		// Example of "overriding" the CrudRepository save() because it simple is never called
 		// You can inject a dataSource and use the jdbcTemplate to provide a customized implementation of a save() method
-		String sql = "INSERT INTO runningbacks(RB_ID, RANK, NAME, TEAM, BYE_WEEK, POINTS, RUSH_ATTEMPTS, RUSH_YARDS, RUSH_TDS, RECEPTIONS, REC_YARDS, REC_TDS, FUM, FUM_LOST, TARGET_SHARE, POINTS_GAME) VALUES(?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO runningbacks(RB_ID, RANK, NAME, TEAM, BYE_WEEK, POINTS, RUSH_ATTEMPTS, RUSH_YARDS, RUSH_TDS, RECEPTIONS, REC_YARDS, REC_TDS, FIRST_DOWNS, 100_YARD_GAME, 200_YARD_GAME, 40_YARD_PLAY, 40_YARD_TDS, PASS_COMPLETED, PASS_YARDS, PASS_TDS, FUM, FUM_LOST, TARGET_SHARE, POINTS_GAME) VALUES(?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try
 		{
 			// Execute SQL Insert
@@ -230,6 +246,14 @@ public class RunningBackDataService implements DataAccessInterface<RBEntity> {
 					orders.getReceptions(),
 					orders.getRecYards(),
 					orders.getRecTds(),
+					orders.getFirstDowns(),
+					orders.getHundredYardGame(),
+					orders.getTwoHundredYardGame(),
+					orders.getFourtyYardPlay(),
+					orders.getFourtyYardTds(),
+					orders.getPassCompleted(),
+					orders.getPassYards(),
+					orders.getPassTds(),
 					orders.getFumbles(),
 					orders.getFumblesLost(),
 					orders.getTargetShare(),

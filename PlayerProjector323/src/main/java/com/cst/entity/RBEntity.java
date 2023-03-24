@@ -38,6 +38,22 @@ public class RBEntity {
 		public Float recYards;
 		@Column("REC_TDS")
 		public Integer recTds;
+		@Column("FIRST_DOWNS")
+		public Integer firstDowns;
+		@Column("100_YARD_GAME")
+		public Integer hundredYardGame;
+		@Column("200_YARD_GAME")
+		public Integer twoHundredYardGame;
+		@Column("40_YARD_PLAY")
+		public Integer fourtyYardPlay;
+		@Column("40_YARD_TDS")
+		public Integer fourtyYardTds;
+		@Column("PASS_COMPLETED")
+		public Integer passCompleted;
+		@Column("PASS_YARDS")
+		public Integer passYards;
+		@Column("PASS_TDS")
+		public Integer passTds;
 		@Column("FUM")
 		public Integer fumbles;
 		@Column("FUM_LOST")
@@ -64,6 +80,14 @@ public class RBEntity {
 			receptions = rb.getReceptions();
 			recYards = rb.getRecYards();
 			recTds = rb.getRecTds();
+			firstDowns = rb.getFirstDowns();
+			hundredYardGame = rb.getHundredYardGame();
+			twoHundredYardGame = rb.getTwoHundredYardGame();
+			fourtyYardPlay = rb.getFourtyYardPlay();
+			fourtyYardTds = rb.getFourtyYardTds();
+			passCompleted = rb.getPassCompleted();
+			passYards = rb.getPassYards();
+			passTds = rb.getPassTds();
 			fumbles = rb.getFumbles();
 			fumblesLost = rb.getFumblesLost();
 			targetShare = rb.getTargetShare();
@@ -83,17 +107,30 @@ public class RBEntity {
 			receptions = -1;
 			recYards = -1f;
 			recTds = -1;
+			firstDowns = -1;
+			hundredYardGame = -1;
+			twoHundredYardGame = -1;
+			fourtyYardPlay = -1;
+			fourtyYardTds = -1;
+			passCompleted = -1;
+			passYards = -1;
+			passTds = -1;
 			fumbles = -1;
 			fumblesLost = -1;
 			targetShare = -1f;
 			pointsGame = -1.00f;
 			return new RBEntity(rbId = -1, rank = -1, name = "", team = "", byeWeek = -1, points = -1f, rushAttempts = -1, rushYards = -1f, rushTds = -1,
-					receptions = -1, recYards = -1f, recTds = -1, fumbles = -1, fumblesLost = -1, targetShare = -1f, pointsGame = -1f);
+					receptions = -1, recYards = -1f, recTds = -1, firstDowns = -1, hundredYardGame = -1, twoHundredYardGame = -1, fourtyYardPlay = -1,
+					fourtyYardTds = -1, passCompleted = -1, passYards = -1, passTds = -1, fumbles = -1, fumblesLost = -1, targetShare = -1f, pointsGame = -1f);
 		}
 		
+		
+		
 		public RBEntity(Integer rbId, Integer rank, String name, String team, Integer byeWeek, Float points,
-				Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards, Integer recTds,
-				Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
+				Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards,
+				Integer recTds, Integer firstDowns, Integer hundredYardGame, Integer twoHundredYardGame,
+				Integer fourtyYardPlay, Integer fourtyYardTds, Integer passCompleted, Integer passYards,
+				Integer passTds, Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
 			this.rbId = rbId;
 			this.rank = rank;
 			this.name = name;
@@ -106,15 +143,25 @@ public class RBEntity {
 			this.receptions = receptions;
 			this.recYards = recYards;
 			this.recTds = recTds;
+			this.firstDowns = firstDowns;
+			this.hundredYardGame = hundredYardGame;
+			this.twoHundredYardGame = twoHundredYardGame;
+			this.fourtyYardPlay = fourtyYardPlay;
+			this.fourtyYardTds = fourtyYardTds;
+			this.passCompleted = passCompleted;
+			this.passYards = passYards;
+			this.passTds = passTds;
 			this.fumbles = fumbles;
 			this.fumblesLost = fumblesLost;
 			this.targetShare = targetShare;
 			this.pointsGame = pointsGame;
 		}
-		
+
 		public RBEntity(Integer rank, String name, String team, Integer byeWeek, Float points,
-				Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards, Integer recTds,
-				Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
+				Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards,
+				Integer recTds, Integer firstDowns, Integer hundredYardGame, Integer twoHundredYardGame,
+				Integer fourtyYardPlay, Integer fourtyYardTds, Integer passCompleted, Integer passYards,
+				Integer passTds, Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
 			this.rank = rank;
 			this.name = name;
 			this.team = team;
@@ -126,6 +173,14 @@ public class RBEntity {
 			this.receptions = receptions;
 			this.recYards = recYards;
 			this.recTds = recTds;
+			this.firstDowns = firstDowns;
+			this.hundredYardGame = hundredYardGame;
+			this.twoHundredYardGame = twoHundredYardGame;
+			this.fourtyYardPlay = fourtyYardPlay;
+			this.fourtyYardTds = fourtyYardTds;
+			this.passCompleted = passCompleted;
+			this.passYards = passYards;
+			this.passTds = passTds;
 			this.fumbles = fumbles;
 			this.fumblesLost = fumblesLost;
 			this.targetShare = targetShare;
@@ -151,10 +206,18 @@ public class RBEntity {
 			this.receptions = Integer.parseInt(playerArray[9]);
 			this.recYards = Float.parseFloat(playerArray[10]);
 			this.recTds = Integer.parseInt(playerArray[11]);
-			this.fumbles = Integer.parseInt(playerArray[12]);
-			this.fumblesLost = Integer.parseInt(playerArray[13]);
-			this.targetShare = Float.parseFloat(playerArray[14]);
-			this.pointsGame = Float.parseFloat(playerArray[15]);
+			this.firstDowns = Integer.parseInt(playerArray[12]);
+			this.hundredYardGame = Integer.parseInt(playerArray[13]);
+			this.twoHundredYardGame = Integer.parseInt(playerArray[14]);
+			this.fourtyYardPlay = Integer.parseInt(playerArray[15]);
+			this.fourtyYardTds = Integer.parseInt(playerArray[16]);
+			this.passCompleted = Integer.parseInt(playerArray[17]);
+			this.passYards = Integer.parseInt(playerArray[18]);
+			this.passTds = Integer.parseInt(playerArray[19]);
+			this.fumbles = Integer.parseInt(playerArray[20]);
+			this.fumblesLost = Integer.parseInt(playerArray[21]);
+			this.targetShare = Float.parseFloat(playerArray[22]);
+			this.pointsGame = Float.parseFloat(playerArray[23]);
 					
 		}
 
@@ -199,7 +262,7 @@ public class RBEntity {
 		}
 
 		public Float getPoints() {
-			return points;
+			return (float) ((rushAttempts*0.1)+(rushYards/10)+(rushTds*6)+(receptions*1)+(recYards/10)+(recTds*6)+(firstDowns*0.1)+(fumbles*0)+(fumblesLost*-2)+(hundredYardGame*2)+(twoHundredYardGame*4)+(fourtyYardPlay*1)+(fourtyYardTds*1.5)+(passCompleted*0.20)+(passYards*0.04)+(passTds*5));
 		}
 
 		public void setPoints(Float points) {
@@ -253,6 +316,70 @@ public class RBEntity {
 		public void setRecTds(Integer recTds) {
 			this.recTds = recTds;
 		}
+		
+		public Integer getFirstDowns() {
+			return firstDowns;
+		}
+		
+		public void setFirstDowns(Integer firstDowns) {
+			this.firstDowns = firstDowns;
+		}		
+
+		public Integer getHundredYardGame() {
+			return hundredYardGame;
+		}
+
+		public void setHundredYardGame(Integer hundredYardGame) {
+			this.hundredYardGame = hundredYardGame;
+		}
+
+		public Integer getTwoHundredYardGame() {
+			return twoHundredYardGame;
+		}
+
+		public void setTwoHundredYardGame(Integer twoHundredYardGame) {
+			this.twoHundredYardGame = twoHundredYardGame;
+		}
+
+		public Integer getFourtyYardPlay() {
+			return fourtyYardPlay;
+		}
+
+		public void setFourtyYardPlay(Integer fourtyYardPlay) {
+			this.fourtyYardPlay = fourtyYardPlay;
+		}
+
+		public Integer getFourtyYardTds() {
+			return fourtyYardTds;
+		}
+
+		public void setFourtyYardTds(Integer fourtyYardTds) {
+			this.fourtyYardTds = fourtyYardTds;
+		}
+
+		public Integer getPassCompleted() {
+			return passCompleted;
+		}
+
+		public void setPassCompleted(Integer passCompleted) {
+			this.passCompleted = passCompleted;
+		}
+
+		public Integer getPassYards() {
+			return passYards;
+		}
+
+		public void setPassYards(Integer passYards) {
+			this.passYards = passYards;
+		}
+
+		public Integer getPassTds() {
+			return passTds;
+		}
+
+		public void setPassTds(Integer passTds) {
+			this.passTds = passTds;
+		}
 
 		public Integer getFumbles() {
 			return fumbles;
@@ -288,14 +415,21 @@ public class RBEntity {
 		
 		
 		
+		
+		
 		@Override
 		public String toString() {
 			return "RBEntity [rbId=" + rbId + ", rank=" + rank + ", name=" + name + ", team=" + team + ", byeWeek="
 					+ byeWeek + ", points=" + points + ", rushAttempts=" + rushAttempts + ", rushYards=" + rushYards
 					+ ", rushTds=" + rushTds + ", receptions=" + receptions + ", recYards=" + recYards + ", recTds="
-					+ recTds + ", fumbles=" + fumbles + ", fumblesLost=" + fumblesLost + ", targetShare=" + targetShare
-					+ ", pointsGame=" + pointsGame + "]";
+					+ recTds + ", firstDowns=" + firstDowns + ", hundredYardGame=" + hundredYardGame
+					+ ", twoHundredYardGame=" + twoHundredYardGame + ", fourtyYardPlay=" + fourtyYardPlay
+					+ ", fourtyYardTds=" + fourtyYardTds + ", passCompleted=" + passCompleted + ", passYards="
+					+ passYards + ", passTds=" + passTds + ", fumbles=" + fumbles + ", fumblesLost=" + fumblesLost
+					+ ", targetShare=" + targetShare + ", pointsGame=" + pointsGame + "]";
 		}
+		
+		
 
 		public void populate(RBEntity bean2) {
 			RBEntity bean = new RBEntity();
@@ -311,6 +445,14 @@ public class RBEntity {
 			bean.setReceptions(bean.getReceptions());
 			bean.setRecYards(bean.getRecYards());
 			bean.setRecTds(bean.getRecTds());
+			bean.setFirstDowns(bean.getFirstDowns());
+			bean.setHundredYardGame(bean.getHundredYardGame());
+			bean.setTwoHundredYardGame(bean.getTwoHundredYardGame());
+			bean.setFourtyYardPlay(bean.getFourtyYardPlay());
+			bean.setFourtyYardTds(bean.getFourtyYardTds());
+			bean.setPassCompleted(bean.getPassCompleted());
+			bean.setPassYards(bean.getPassYards());
+			bean.setPassTds(bean.getPassTds());
 			bean.setFumbles(bean.getFumbles());
 			bean.setFumblesLost(bean.getFumblesLost());
 			bean.setTargetShare(bean.getTargetShare());

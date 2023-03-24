@@ -150,6 +150,10 @@ $(document).ready(function(){
         					<input type="text" class="form-control" name="recTds"  th:value="${recTds}"  id="recTds" autocomplete="off">
         				</div>
         				<div class="form-group col-md-4">
+        					<label for="itemDetailsPayment">First Downs</label>
+        					<input type="text" class="form-control" name="firstDowns"  th:value="${firstDowns}"  id="firstDowns" autocomplete="off">
+        				</div>
+        				<div class="form-group col-md-4">
         					<label for="itemDetailsPayment">Fumbles</label>
         					<input type="text" class="form-control" name="fumbles"  th:value="${fumbles}"  id="fumbles" autocomplete="off">
         				</div>
@@ -203,6 +207,7 @@ $(document).ready(function(){
 											<th style="text-align:center; color:black;">Receptions</th>
 											<th style="text-align:center; color:black;">Rec Yards</th>
 											<th style="text-align:center; color:black;">Rec TDs</th>
+											<th style="text-align:center; color:black;">First Downs</th>
 											<th style="text-align:center; color:black;">Fumbles</th>
 											<th style="text-align:center; color:black;">Fum Lost</th>
 											<th style="text-align:center; color:black;">Target Share</th>
@@ -231,6 +236,7 @@ $(document).ready(function(){
 											<td style="text-align:center"><h5 th:text="${runningback.receptions}">65</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.recYards}">435</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.recTds}">3</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.firstDowns}">43</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.fumbles}">6</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.fumblesLost}">3</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.targetShare}">21.2</h5></td>

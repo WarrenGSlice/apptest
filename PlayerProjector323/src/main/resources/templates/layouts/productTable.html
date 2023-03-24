@@ -33,21 +33,29 @@ $(document).ready( function () {
 													<div class="inner-circle"></div>
 												</div>
 											</th>
-											<th style="text-align:center; color:black;">RB ID</th>
-											<th style="text-align:center; color:black;">Rank</th>
-											<th style="text-align:center; color:black;">Player Name</th>
-											<th style="text-align:center; color:black;">Team</th>
-											<th style="text-align:center; color:black;">Bye</th>											
-											<th style="text-align:center; color:black;">Total Points</th>
-											<th style="text-align:center; color:black;">Rush Attempts</th>
-											<th style="text-align:center; color:black;">Rush Yards</th>
-											<th style="text-align:center; color:black;">Rush TDs</th>
-											<th style="text-align:center; color:black;">Receptions</th>
-											<th style="text-align:center; color:black;">Rec Yards</th>
-											<th style="text-align:center; color:black;">Rec TDs</th>
-											<th style="text-align:center; color:black;">Fumbles</th>
-											<th style="text-align:center; color:black;">Fum Lost</th>
-											<th style="text-align:center; color:black;">Target Share</th>
+											<th style="text-align:center; color:black;">RB ID |</th>
+											<th style="text-align:center; color:black;">Rank |</th>
+											<th style="text-align:center; color:black;">Name |</th>
+											<th style="text-align:center; color:black;">Team |</th>
+											<th style="text-align:center; color:black;">Bye |</th>											
+											<th style="text-align:center; color:black;">Points |</th>
+											<th style="text-align:center; color:black;">Attempts |</th>
+											<th style="text-align:center; color:black;">Rush Yards |</th>
+											<th style="text-align:center; color:black;">Rush TDs |</th>
+											<th style="text-align:center; color:black;">Receptions |</th>
+											<th style="text-align:center; color:black;">Rec Yards |</th>
+											<th style="text-align:center; color:black;">Rec TDs |</th>
+											<th style="text-align:center; color:black;">First Downs |</th>
+											<th style="text-align:center; color:black;">100-199 Game |</th>
+											<th style="text-align:center; color:black;">200+ Game |</th>
+											<th style="text-align:center; color:black;">40+ Rush |</th>
+											<th style="text-align:center; color:black;">40+ Yard TD |</th>
+											<th style="text-align:center; color:black;">Pass Completed |</th>
+											<th style="text-align:center; color:black;">Pass Yards |</th>
+											<th style="text-align:center; color:black;">Pass TDs |</th>
+											<th style="text-align:center; color:black;">Fum |</th>
+											<th style="text-align:center; color:black;">Fum Lost |</th>
+											<th style="text-align:center; color:black;">Target Share |</th>
 											<th style="text-align:center; color:black;">Pts/Game</th>
 											<th></th>
 										</tr>
@@ -74,6 +82,14 @@ $(document).ready( function () {
 											<td style="text-align:center"><h5 th:text="${runningback.receptions}">65</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.recYards}">435</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.recTds}">3</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.firstDowns}">43</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.hundredYardGame}">2</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.twoHundredYardGame}">0</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.fourtyYardPlay}">1</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.fourtyYardTds}">1</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.passCompleted}">0</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.passYards}">0</h5></td>
+											<td style="text-align:center"><h5 th:text="${runningback.passTds}">0</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.fumbles}">6</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.fumblesLost}">3</h5></td>
 											<td style="text-align:center"><h5 th:text="${runningback.targetShare}">21.2</h5></td>

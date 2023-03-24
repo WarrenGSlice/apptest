@@ -153,7 +153,40 @@ function ConfirmDelete() {
         				</div>    
         			</div>
         			<div class="form-row">
-        								
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsFirstDowns">First Downs</label>
+        					<input type="text" class="form-control" name="firstDowns"  th:value="${firstDowns}" th:field="*{firstDowns}" id="firstDowns" autocomplete="off">
+        				</div>  
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsHundredYardGame">100-199 Yard Games</label>
+        					<input type="text" class="form-control" name="hundredYardGame"  th:value="${hundredYardGame}" th:field="*{hundredYardGame}" id="hundredYardGame" autocomplete="off">
+        				</div> 
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsTwoHundredYardGame">200+ Yard Games</label>
+        					<input type="text" class="form-control" name="twoHundredYardGame"  th:value="${twoHundredYardGame}" th:field="*{twoHundredYardGame}" id="twoHundredYardGame" autocomplete="off">
+        				</div> 
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsFourtyYardPlay">40+ Yard Plays</label>
+        					<input type="text" class="form-control" name="fourtyYardPlay"  th:value="${fourtyYardPlay}" th:field="*{fourtyYardPlay}" id="fourtyYardPlay" autocomplete="off">
+        				</div> 
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsFourtyYardTds">40+ Yard Tds</label>
+        					<input type="text" class="form-control" name="fourtyYardTds"  th:value="${fourtyYardTds}" th:field="*{fourtyYardTds}" id="fourtyYardTds" autocomplete="off">
+        				</div> 
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsPassCompleted">Passing Completions</label>
+        					<input type="text" class="form-control" name="passCompleted"  th:value="${passCompleted}" th:field="*{passCompleted}" id="passCompleted" autocomplete="off">
+        				</div>       				
+        			</div>
+        			<div class="form-row">
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsPassYards">Passing Yards</label>
+        					<input type="text" class="form-control" name="passYards"  th:value="${passYards}" th:field="*{passYards}" id="passYards" autocomplete="off">
+        				</div> 
+        				<div class="form-group col-md-2">
+        					<label for="itemDetailsPassTds">Passing TDs</label>
+        					<input type="text" class="form-control" name="passTds"  th:value="${passTds}" th:field="*{passTds}" id="passTds" autocomplete="off">
+        				</div>   				
         				<div class="form-group col-md-2">
         					<label for="itemDetailsFumbles">Fumbles</label>
         					<input type="text" class="form-control" name="fumbles"  th:value="${fumbles}" th:field="*{fumbles}" id="fumbles" autocomplete="off">

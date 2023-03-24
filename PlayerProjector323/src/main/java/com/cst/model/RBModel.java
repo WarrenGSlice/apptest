@@ -15,15 +15,26 @@ public class RBModel {
 	public Integer receptions;
 	public Float recYards;
 	public Integer recTds;
+	public Integer firstDowns;
+	public Integer hundredYardGame;
+	public Integer twoHundredYardGame;
+	public Integer fourtyYardPlay;
+	public Integer fourtyYardTds;
+	public Integer passCompleted;
+	public Integer passYards;
+	public Integer passTds;
 	public Integer fumbles;
 	public Integer fumblesLost;
 	public Float targetShare;
 	public Float pointsGame;
 	
 	
+	
 	public RBModel(Integer rbId, Integer rank, String name, String team, Integer byeWeek, Float points,
 			Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards, Integer recTds,
-			Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
+			Integer firstDowns, Integer hundredYardGame, Integer twoHundredYardGame, Integer fourtyYardPlay,
+			Integer fourtyYardTds, Integer passCompleted, Integer passYards, Integer passTds, Integer fumbles,
+			Integer fumblesLost, Float targetShare, Float pointsGame) {
 		this.rbId = rbId;
 		this.rank = rank;
 		this.name = name;
@@ -36,6 +47,14 @@ public class RBModel {
 		this.receptions = receptions;
 		this.recYards = recYards;
 		this.recTds = recTds;
+		this.firstDowns = firstDowns;
+		this.hundredYardGame = hundredYardGame;
+		this.twoHundredYardGame = twoHundredYardGame;
+		this.fourtyYardPlay = fourtyYardPlay;
+		this.fourtyYardTds = fourtyYardTds;
+		this.passCompleted = passCompleted;
+		this.passYards = passYards;
+		this.passTds = passTds;
 		this.fumbles = fumbles;
 		this.fumblesLost = fumblesLost;
 		this.targetShare = targetShare;
@@ -44,7 +63,9 @@ public class RBModel {
 	
 	public RBModel(Integer rank, String name, String team, Integer byeWeek, Float points,
 			Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards, Integer recTds,
-			Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
+			Integer firstDowns, Integer hundredYardGame, Integer twoHundredYardGame, Integer fourtyYardPlay,
+			Integer fourtyYardTds, Integer passCompleted, Integer passYards, Integer passTds, Integer fumbles,
+			Integer fumblesLost, Float targetShare, Float pointsGame) {
 		this.rank = rank;
 		this.name = name;
 		this.team = team;
@@ -56,6 +77,57 @@ public class RBModel {
 		this.receptions = receptions;
 		this.recYards = recYards;
 		this.recTds = recTds;
+		this.firstDowns = firstDowns;
+		this.hundredYardGame = hundredYardGame;
+		this.twoHundredYardGame = twoHundredYardGame;
+		this.fourtyYardPlay = fourtyYardPlay;
+		this.fourtyYardTds = fourtyYardTds;
+		this.passCompleted = passCompleted;
+		this.passYards = passYards;
+		this.passTds = passTds;
+		this.fumbles = fumbles;
+		this.fumblesLost = fumblesLost;
+		this.targetShare = targetShare;
+		this.pointsGame = pointsGame;
+	}
+
+	public RBModel(Integer rbId, Integer rank, String name, String team, Integer byeWeek, Float points,
+			Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards, Integer recTds,
+			Integer firstDowns, Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
+		this.rbId = rbId;
+		this.rank = rank;
+		this.name = name;
+		this.team = team;
+		this.byeWeek = byeWeek;
+		this.points = points;
+		this.rushAttempts = rushAttempts;
+		this.rushYards = rushYards;
+		this.rushTds = rushTds;
+		this.receptions = receptions;
+		this.recYards = recYards;
+		this.recTds = recTds;
+		this.firstDowns = firstDowns;
+		this.fumbles = fumbles;
+		this.fumblesLost = fumblesLost;
+		this.targetShare = targetShare;
+		this.pointsGame = pointsGame;
+	}
+	
+	public RBModel(Integer rank, String name, String team, Integer byeWeek, Float points,
+			Integer rushAttempts, Float rushYards, Integer rushTds, Integer receptions, Float recYards, Integer recTds,
+			Integer firstDowns, Integer fumbles, Integer fumblesLost, Float targetShare, Float pointsGame) {
+		this.rank = rank;
+		this.name = name;
+		this.team = team;
+		this.byeWeek = byeWeek;
+		this.points = points;
+		this.rushAttempts = rushAttempts;
+		this.rushYards = rushYards;
+		this.rushTds = rushTds;
+		this.receptions = receptions;
+		this.recYards = recYards;
+		this.recTds = recTds;
+		this.firstDowns = firstDowns;
 		this.fumbles = fumbles;
 		this.fumblesLost = fumblesLost;
 		this.targetShare = targetShare;
@@ -80,6 +152,14 @@ public class RBModel {
 		this.receptions = -1;
 		this.recYards = -1f;
 		this.recTds = -1;
+		this.firstDowns = -1;
+		this.hundredYardGame = -1;
+		this.twoHundredYardGame = -1;
+		this.fourtyYardPlay = -1;
+		this.fourtyYardTds = -1;
+		this.passCompleted = -1;
+		this.passYards = -1;
+		this.passTds = -1;
 		this.fumbles = -1;
 		this.fumblesLost = -1;
 		this.targetShare = -1f;
@@ -99,10 +179,18 @@ public class RBModel {
 		this.receptions = Integer.parseInt(playerArray[9]);
 		this.recYards = Float.parseFloat(playerArray[10]);
 		this.recTds = Integer.parseInt(playerArray[11]);
-		this.fumbles = Integer.parseInt(playerArray[12]);
-		this.fumblesLost = Integer.parseInt(playerArray[13]);
-		this.targetShare = Float.parseFloat(playerArray[14]);
-		this.pointsGame = Float.parseFloat(playerArray[15]);
+		this.firstDowns = Integer.parseInt(playerArray[12]);
+		this.hundredYardGame = Integer.parseInt(playerArray[13]);
+		this.twoHundredYardGame = Integer.parseInt(playerArray[14]);
+		this.fourtyYardPlay = Integer.parseInt(playerArray[15]);
+		this.fourtyYardTds = Integer.parseInt(playerArray[16]);
+		this.passCompleted = Integer.parseInt(playerArray[17]);
+		this.passYards = Integer.parseInt(playerArray[18]);
+		this.passTds = Integer.parseInt(playerArray[19]);
+		this.fumbles = Integer.parseInt(playerArray[20]);
+		this.fumblesLost = Integer.parseInt(playerArray[21]);
+		this.targetShare = Float.parseFloat(playerArray[22]);
+		this.pointsGame = Float.parseFloat(playerArray[23]);
 				
 	}
 
@@ -147,7 +235,7 @@ public class RBModel {
 	}
 
 	public Float getPoints() {
-		return points;
+		return (float) ((rushAttempts*0.1)+(rushYards/10)+(rushTds*6)+(receptions*1)+(recYards/10)+(recTds*6)+(firstDowns*0.1)+(fumbles*-0)+(fumblesLost*-2)+(hundredYardGame*2)+(twoHundredYardGame*4)+(fourtyYardPlay*1)+(fourtyYardTds*1.5)+(passCompleted*0.20)+(passYards*0.04)+(passTds*5));
 	}
 
 	public void setPoints(Float points) {
@@ -201,6 +289,72 @@ public class RBModel {
 	public void setRecTds(Integer recTds) {
 		this.recTds = recTds;
 	}
+	
+	public Integer getFirstDowns() {
+		return firstDowns;
+	}
+	
+	public void setFirstDowns(Integer firstDowns) {
+		this.firstDowns = firstDowns;
+	}
+	
+	
+
+	public Integer getHundredYardGame() {
+		return hundredYardGame;
+	}
+
+	public void setHundredYardGame(Integer hundredYardGame) {
+		this.hundredYardGame = hundredYardGame;
+	}
+
+	public Integer getTwoHundredYardGame() {
+		return twoHundredYardGame;
+	}
+
+	public void setTwoHundredYardGame(Integer twoHundredYardGame) {
+		this.twoHundredYardGame = twoHundredYardGame;
+	}
+
+	public Integer getFourtyYardPlay() {
+		return fourtyYardPlay;
+	}
+
+	public void setFourtyYardPlay(Integer fourtyYardPlay) {
+		this.fourtyYardPlay = fourtyYardPlay;
+	}
+
+	public Integer getFourtyYardTds() {
+		return fourtyYardTds;
+	}
+
+	public void setFourtyYardTds(Integer fourtyYardTds) {
+		this.fourtyYardTds = fourtyYardTds;
+	}
+
+	public Integer getPassCompleted() {
+		return passCompleted;
+	}
+
+	public void setPassCompleted(Integer passCompleted) {
+		this.passCompleted = passCompleted;
+	}
+
+	public Integer getPassYards() {
+		return passYards;
+	}
+
+	public void setPassYards(Integer passYards) {
+		this.passYards = passYards;
+	}
+
+	public Integer getPassTds() {
+		return passTds;
+	}
+
+	public void setPassTds(Integer passTds) {
+		this.passTds = passTds;
+	}
 
 	public Integer getFumbles() {
 		return fumbles;
@@ -236,9 +390,15 @@ public class RBModel {
 	
 	@Override
 	public String toString() {
-		return "RBModel [RB_ID=" + rbId + ", Rank=" + rank + ", Player Name=" + name + ", Team Name=" + team + ", Bye Week=" + byeWeek +
-				", Total Points=" + points + ", Rush Attempts=" + rushAttempts + ", Rush Yards=" + rushYards + ", Rush TDS=" + rushTds +
-				", Receptions=" + receptions + ", Rec Yards=" + recYards + ", Rec TDS=" + recTds + ", Fumbles=" + fumbles + ", Fumbles Lost=" +
-				fumblesLost + ", Target Share=" + targetShare + ", Points/Game=" + pointsGame +"]";
+		return "RBModel [rbId=" + rbId + ", rank=" + rank + ", name=" + name + ", team=" + team + ", byeWeek=" + byeWeek
+				+ ", points=" + points + ", rushAttempts=" + rushAttempts + ", rushYards=" + rushYards + ", rushTds="
+				+ rushTds + ", receptions=" + receptions + ", recYards=" + recYards + ", recTds=" + recTds
+				+ ", firstDowns=" + firstDowns + ", hundredYardGame=" + hundredYardGame + ", twoHundredYardGame="
+				+ twoHundredYardGame + ", fourtyYardPlay=" + fourtyYardPlay + ", fourtyYardTds=" + fourtyYardTds
+				+ ", passCompleted=" + passCompleted + ", passYards=" + passYards + ", passTds=" + passTds
+				+ ", fumbles=" + fumbles + ", fumblesLost=" + fumblesLost + ", targetShare=" + targetShare
+				+ ", pointsGame=" + pointsGame + "]";
 	}
+	
+	
 }
