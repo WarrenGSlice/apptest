@@ -30,6 +30,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.azure.tools/azure-sdk-build-tool -->
+		<dependency>
+    		<groupId>com.azure.tools</groupId>
+    		<artifactId>azure-sdk-build-tool</artifactId>
+    		<version>1.0.0-beta.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
