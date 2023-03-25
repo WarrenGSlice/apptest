@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'PlayerProjector'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5BEBF12ADA2E4D1CA3BD10F350B63BE7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_64D9263BF5744FD29D6A53F369214F83 }}
           package: '*.war'
