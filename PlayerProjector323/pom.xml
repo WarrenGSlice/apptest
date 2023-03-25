@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PlayerProjector323</name>
 	<description>Project for CST-323</description>
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud-azure.version>4.6.0</spring-cloud-azure.version>
@@ -72,14 +73,36 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>profile1</id>
+			<properties>
+				<spring.boot.mainclass>com.cst.PlayerProjector323Application</spring.boot.mainclass>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
+		<finalName>app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<mainClass>${spring.boot.mainclass}</mainClass>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+	
+	
 
 </project>
