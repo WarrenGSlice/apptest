@@ -1,5 +1,7 @@
 package com.cst.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ import com.cst.repository.PlayerRepository;
 @Controller
 public class LoginController {
 	
+	Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
 	@Autowired
 	private RunningBackInterface service;
 	
@@ -39,8 +43,14 @@ public class LoginController {
 	 */
 	@GetMapping("/login")
 	public String display(Model model, User user, Login login) {
+		
+    	logger.info("Entering LoginController.display()");
+
 		model.addAttribute("title", "Login Form");
 		model.addAttribute("login", new Login());
+		
+    	logger.info("Exiting LoginController.display()");
+
 		return "login";
 	}
 
@@ -56,6 +66,9 @@ public class LoginController {
 	@SuppressWarnings("static-access")
 	@PostMapping("/login")
 	public String loginUser(/*@Valid*/@ModelAttribute Login login, BindingResult bindingResult, Model model) {		
+		
+    	logger.info("Entering LoginController.loginUser()");
+
 
 		this.login = login;
 		
@@ -64,6 +77,8 @@ public class LoginController {
 		model.addAttribute("runningbacks", service.getRunningBacks());
 		model.addAttribute("rbEntity", new RBEntity());
 			
+    	logger.info("Exiting LoginController.loginUser()");
+
 		return "viewOrders";
 	}
 }

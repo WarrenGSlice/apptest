@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,8 @@ import com.cst.repository.PlayerRepository;
 @Controller
 @RequestMapping("/productClone")
 public class PlayerController {
+	
+	Logger logger = LoggerFactory.getLogger(PlayerController.class);
 
 	@Autowired
 	private RunningBackInterface service;
@@ -43,6 +47,9 @@ public class PlayerController {
 	@GetMapping("/")
     public String displayProducts(Model model, User user) {
 		
+		//Log the API call
+    	logger.info("Entering PlayerController.displayProducts()");
+		
         model.addAttribute("title", "Product Form");
         model.addAttribute("user", new Login().getUsername());
         model.addAttribute("runningback", new RBModel());
@@ -60,6 +67,9 @@ public class PlayerController {
 	 */
 	@PostMapping("/doProductClone")
 	public String ProductPage(@ModelAttribute("runningbacks") RBModel productClone, BindingResult bindingResult, Model model) {		
+		
+		//Log the API call
+    	logger.info("Entering PlayerController.ProductPage()");
 			
 		// Check for validation errors
 		if (bindingResult.hasErrors()) {
@@ -83,6 +93,9 @@ public class PlayerController {
 	@GetMapping("/viewOrders")
 	public String viewOrder(@ModelAttribute Login login, Model model, BindingResult bindingResult)
 	{		
+		//Log the API call
+    	logger.info("Entering PlayerController.viewOrder()");
+		
 		model.addAttribute("title" , "View All Orders");
 		model.addAttribute("rbEntity", new RBEntity());
 		model.addAttribute("runningbacks" , service.getRunningBacks());
@@ -102,6 +115,9 @@ public class PlayerController {
 	@SuppressWarnings("static-access")
 	@GetMapping("/display")
 	public String loginUser(@ModelAttribute Login login, Model model) {		
+		
+		//Log the API call
+    	logger.info("Entering PlayerController.loginUser()");
 		
 		this.login  = login;
 		
@@ -126,6 +142,9 @@ public class PlayerController {
 	 */
 	@GetMapping("/editOrder/{rbId}")
 	public String displayFoundId (@RequestParam(required = false) Integer rbId, Integer id, @ModelAttribute("form") RBEntity form, HttpSession session, Model model, Login login ) {
+		
+		//Log the API call
+    	logger.info("Entering PlayerController.displayFoundId()");
 		
 		if (form.getRbId() > 0) {
 		}
@@ -153,6 +172,9 @@ public class PlayerController {
 	 */
 	@GetMapping("/removeOrder/{rbId}")
 	public String deleteSingle(@RequestParam(required = false) Integer rbId, Integer id, @ModelAttribute("form") RBEntity form, HttpSession session, Model model, Login login ) {
+		
+		//Log the API call
+    	logger.info("Entering PlayerController.deleteSingle()");
 			
 		if (form.getRbId() > 0) {
 		}
@@ -180,6 +202,9 @@ public class PlayerController {
 	@PostMapping("/changeOrder")
 	public String updateOrder(@ModelAttribute Login login, RBEntity rbEntity, Model model, BindingResult bindingResult, Backs backs )
 	{
+		//Log the API call
+    	logger.info("Entering PlayerController.updateOrder()");
+		
 		rbEntity.setRbId(rbEntity.getRbId());
 		rbEntity.setRank(rbEntity.getRank());
 		rbEntity.setName(rbEntity.getName());
@@ -229,6 +254,9 @@ public class PlayerController {
 		@PostMapping("/removeOrder")
 		public String deleteOrder(@ModelAttribute Login login, RBEntity rbEntity, Model model, BindingResult bindingResult, Backs backs )
 		{
+			//Log the API call
+	    	logger.info("Entering PlayerController.deleteOrder()");
+			
 			rbEntity.setRbId(rbEntity.getRbId());
 			rbEntity.setRank(rbEntity.getRank());
 			rbEntity.setName(rbEntity.getName());
@@ -278,6 +306,9 @@ public class PlayerController {
 		@PostMapping("/addOrder")
 		public String addOrder(@ModelAttribute Login login, RBEntity rbEntity, Model model, BindingResult bindingResult, Backs backs)
 		{
+			//Log the API call
+	    	logger.info("Entering PlayerController.addOrder()");
+			
 			System.out.println("/addOrder RB ID: " + rbEntity.getRbId() + " " + rbEntity.toString() );
 			
 			rbEntity.setRbId(rbEntity.getRbId());
@@ -325,6 +356,10 @@ public class PlayerController {
 		 */
 		@RequestMapping(path = { "/search" })
 		public String search(@ModelAttribute Login login, Model model, String searchTerm) {
+			
+			//Log the API call
+	    	logger.info("Entering PlayerController.search()");
+			
 			System.out.println(searchTerm);
 			ArrayList<RBModel> tempList = new ArrayList<RBModel>();
 			if (searchTerm.isEmpty())

@@ -15,7 +15,8 @@
 	<description>Project for CST-323</description>
 	<packaging>jar</packaging>
 	<properties>
-		<java.version>11</java.version>
+		<jarname>PlayerProjector323</jarname>
+		<java.version>1.8</java.version>
 		<spring-cloud-azure.version>4.6.0</spring-cloud-azure.version>
 	</properties>
 	<dependencies>
@@ -72,6 +73,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+    		<groupId>log4j</groupId>
+    		<artifactId>log4j</artifactId>
+    		<version>1.2.17</version>
+		</dependency>
+
 	</dependencies>
 	
 	<profiles>
@@ -100,7 +113,9 @@
 					</execution>
 				</executions>
 			</plugin>
+			
 		</plugins>
+
 	</build>
 	
 	
