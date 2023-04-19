@@ -108,7 +108,7 @@
 							<goal>repackage</goal>
 						</goals>
 						<configuration>
-							<mainClass>${spring.boot.mainclass}</mainClass>
+							<mainClass>com.cst.PlayerProjector323Application</mainClass>
 						</configuration>
 					</execution>
 				</executions>
